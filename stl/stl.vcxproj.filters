@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\Sequence">
+      <UniqueIdentifier>{49b2decb-d386-4f9d-bb9e-a63b17a41419}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Associative">
+      <UniqueIdentifier>{8d8ce56f-c438-4d42-85f2-042990991dd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Algorithm">
+      <UniqueIdentifier>{cf98be0e-caf9-44c6-8524-8e7c5543b31f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\BasicTools">
+      <UniqueIdentifier>{1f7828d0-82d6-4fdd-b874-291e0577fb2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Interface">
+      <UniqueIdentifier>{f60bd121-4618-45ee-80ce-1df57b924243}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sstl\sstl_tree.h">
+      <Filter>头文件\Associative</Filter>
+    </ClInclude>
+    <ClInclude Include="sstl\sstl_algobase.h">
+      <Filter>头文件\Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="sstl\sstl_vector.h">
+      <Filter>头文件\Sequence</Filter>
+    </ClInclude>
+    <ClInclude Include="sstl\sstl_list.h">
+      <Filter>头文件\Sequence</Filter>
+    </ClInclude>
+    <ClInclude Include="sstl\sstl_deque.h">
+      <Filter>头文件\Sequence</Filter>
+    </ClInclude>
+    <ClInclude Include="sstl\sstl_construct.h">
+      <Filter>头文件\BasicTools</Filter>
+    </ClInclude>
+    <ClInclude Include="sstl\sstl_config.h">
+      <Filter>头文件\BasicTools</Filter>
+    </ClInclude>
+    <ClInclude Include="sstl\sstl_alloc.h">
+      <Filter>头文件\BasicTools</Filter>
+    </ClInclude>
+    <ClInclude Include="sstl\sstl_defalloc.h">
+      <Filter>头文件\BasicTools</Filter>
+    </ClInclude>
+    <ClInclude Include="sstl\sstl_iterator.h">
+      <Filter>头文件\BasicTools</Filter>
+    </ClInclude>
+    <ClInclude Include="sstl\sstl_heap.h">
+      <Filter>头文件\Algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="sstl\sstl_functors.h">
+      <Filter>头文件\BasicTools</Filter>
+    </ClInclude>
+    <ClInclude Include="sstl\sstl_rbtree.h">
+      <Filter>头文件\Associative</Filter>
+    </ClInclude>
+    <ClInclude Include="sstl\sstl_tuple.h">
+      <Filter>头文件\Sequence</Filter>
+    </ClInclude>
+    <ClInclude Include="slinkedlist.h">
+      <Filter>头文件\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="svector.h">
+      <Filter>头文件\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="sdeque.h">
+      <Filter>头文件\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="smap.h">
+      <Filter>头文件\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="sset.h">
+      <Filter>头文件\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="sfunctor.h">
+      <Filter>头文件\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="salgorithm.h">
+      <Filter>头文件\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="stuple.h">
+      <Filter>头文件\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="squeue.h">
+      <Filter>头文件\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="sstack.h">
+      <Filter>头文件\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="sstl\sstl_wstring.h">
+      <Filter>头文件\Sequence</Filter>
+    </ClInclude>
+    <ClInclude Include="sstl\sstl_setalgo.h">
+      <Filter>头文件\Algorithm</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sstl\sstl_vector.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sstl\sstl_wstring.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
