@@ -12,16 +12,16 @@ class Array:protected Vector<T>
 		using typename Vector<T>::size_type;
 		using typename Vector<T>::const_reference;
 	public:
-		Array(T _X[],size_t length)
+		Array(T _x[],size_t length)
 		{
-			Initialize(_X,length);
+			Initialize(_x,length);
 		}
 		Array()
 		{}
-		void Initialize(T _X[],size_t length)
+		void Initialize(T _x[],size_t length)
 		{
-			this->start = this->finish = _X;
-			this->end_of_storage = _X + length;
+			this->start = this->finish = _x;
+			this->end_of_storage = _x + length;
 		}
 		iterator Erase(iterator position)
 		{
@@ -55,13 +55,13 @@ class Array:protected Vector<T>
 			}
 			return true;
 		}
-		bool PushBack(const_reference _X)
+		bool PushBack(const_reference _x)
 		{
 			if(!Judge(1))
 			{
 				return false;
 			}
-			Vector<T>::PushBack(_X);
+			Vector<T>::PushBack(_x);
 			return true;
 		}
 		bool Insert(iterator position,size_type n,const_reference x)
