@@ -31,11 +31,11 @@ private:
 	
 	mutable Ptr<value_type>		buffer;
 	mutable size_type			start;
-	mutable size_type			length;	//ÓÐÐ§×Ö·û³¤¶È£¨²»°üÀ¨½áÎ²×Ö·û£©
+	mutable size_type			length;	//ï¿½ï¿½Ð§ï¿½Ö·ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î²ï¿½Ö·ï¿½ï¿½ï¿½
 	mutable size_type			realLength;
 
 public:
-	static BasicString Empty;	//¿Õ´®
+	static BasicString Empty;	//ï¿½Õ´ï¿½
 	static const value_type		zero = 0;
 
 	static size_type CalculateLength(const value_type* buffer)
@@ -78,7 +78,7 @@ public:
 	}
 
 private:
-	//È¡ÁíÒ»¸öStringµÄÄ³Ò»²¿·ÖÀ´¹¹Ôì×Ô¼º
+	//È¡ï¿½ï¿½Ò»ï¿½ï¿½Stringï¿½ï¿½Ä³Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½
 	BasicString(const BasicString& src, npos _Index, size_type _Length) :buffer()
 	{
 		if (_Length == 0)
@@ -95,30 +95,30 @@ private:
 			start = _Index;
 			length = _Length;
 			realLength = src.realLength;
-			//ÕâÀï×îºóÓ¦¸Ã¸Ä³ÉÅ×³öÒì³£¡£
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ã¸Ä³ï¿½ï¿½×³ï¿½ï¿½ì³£ï¿½ï¿½
 			if (start + length >= realLength)length = realLength - start - 1;
 		}
 
 	}
-	//°ÑresourceÖÐµÄ×Ö·û´®µÄÒ»²¿·ÖÓÃÁíÒ»¸ö×Ö·û´®ÍêÈ«´úÌæ
+	//ï¿½ï¿½resourceï¿½Ðµï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½
 	BasicString(const BasicString& des, const BasicString& src, npos _Index, size_type _Length)
 	{
 		if (_Index > (npos)des.length)_Index = des.length;
 		if (_Index + _Length > (npos)des.length)_Length = 0;
-		size_type resLength = des.length - _Length + src.length + 1;//±ðÍüÁË½áÎ²·ûºÅ
+		size_type resLength = des.length - _Length + src.length + 1;//ï¿½ï¿½ï¿½ï¿½ï¿½Ë½ï¿½Î²ï¿½ï¿½ï¿½ï¿½
 
 		buffer = alloc.Allocate(resLength);
 		memset(buffer.Obj(), 0, resLength*sizeof(value_type));
 		length = resLength - 1;
 		realLength = resLength;
 		start = 0;
-		//¿ªÊ¼¸´ÖÆ
+		//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
 		auto ite = copy(des.Begin(), des.Begin() + _Index, buffer.Obj());
 		ite = copy(src.Begin(), src.End(), ite);
 		copy(des.Begin() + _Index + _Length, des.End(), ite);
 	}
 public:
-	BasicString() :BasicString(*this, 0, 0){} //Ä¬ÈÏ¹¹Ôìº¯Êý²úÉúÒ»¸ö1×Ö·ûµÄString
+	BasicString() :BasicString(*this, 0, 0){} //Ä¬ï¿½Ï¹ï¿½ï¿½ìº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½1ï¿½Ö·ï¿½ï¿½ï¿½String
 	BasicString(const value_type* _buffer, size_type _length)
 	{
 		if (_length == 0)
@@ -194,17 +194,19 @@ public:
 	{
 		return *(Buffer() + _Pos);
 	}
-	BasicString Cat(const BasicString& _Str, npos _Pos)const//°Ñ_StrÁ¬ÔÚÕâ¸ö×Ö·û´®µÄ_Pos´¦
+	BasicString Cat(const BasicString& _Str, npos _Pos)const//ï¿½ï¿½_Strï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½_Posï¿½ï¿½
 	{
-		return BasicString(*this, _Str, _Pos, 0);
+		auto result =  BasicString(*this, _Str, _Pos, 0);
+		return result;
 	}
-	void CStr(char* _Buf)const
+	char* CStr(char* _Buf)const
 	{
 		for(auto& c : *this)
 		{
 			*_Buf++ = c;
 		}
 		*_Buf = '\0';
+		return _Buf;
 	}
 	BasicString Cat(const BasicString& _Str)const
 	{
@@ -271,7 +273,8 @@ public:
 
 	BasicString operator+(const BasicString& string)const
 	{
-		return Cat(string);
+		auto res = Cat(string);
+		return res;
 	}
 
 	bool operator==(const BasicString& string)const
