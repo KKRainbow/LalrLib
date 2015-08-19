@@ -201,12 +201,13 @@ public:
 	}
 	char* CStr(char* _Buf)const
 	{
+		char* o = _Buf;
 		for(auto& c : *this)
 		{
 			*_Buf++ = c;
 		}
 		*_Buf = '\0';
-		return _Buf;
+		return o;
 	}
 	BasicString Cat(const BasicString& _Str)const
 	{
