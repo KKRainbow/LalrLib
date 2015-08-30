@@ -99,7 +99,7 @@ public:
 	{
 		Resize(new_size, T());
 	}
-public: //¹¹Ôìº¯Êý
+public: //ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
 	~Vector()
 	{
 		Deallocate();
@@ -139,7 +139,7 @@ public: //¹¹Ôìº¯Êý
 	//Vector(initializer_list<value_type> il, const allocator_type& alloc = allocator_type());
 	Vector<T>& operator = (const Vector<T>& x)
 	{
-		if (this == &x)return *this;	//·ÀÖ¹×Ô¼º¸ø×Ô¼º¸³Öµ
+		if (this == &x)return *this;	//ï¿½ï¿½Ö¹ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½Öµ
 		Deallocate();
 		start = alloc.Allocate(x.Size());
 		_uninitialized_fill_n(start, x.Size(), T());
@@ -162,7 +162,7 @@ void Vector<T, Alloc>::Insert(iterator position, size_type n, const_reference x)
 	{
 		return;
 	}
-	if (Capacity() - Size() >= n) //Ê£Óà¿Õ¼ä×ã¹»
+	if (Capacity() - Size() >= n) //Ê£ï¿½ï¿½Õ¼ï¿½ï¿½ã¹»
 	{
 		iterator tmp = position;
 		
@@ -170,7 +170,7 @@ void Vector<T, Alloc>::Insert(iterator position, size_type n, const_reference x)
 		_uninitialized_fill_n(position, n, x);
 		finish += n;
 	}
-	else //¿Õ¼ä²»×ã
+	else //ï¿½Õ¼ä²»ï¿½ï¿½
 	{
 		const size_type old_size = Size();
 		const size_type new_size = max(Size() * 2, Size() + n);
@@ -186,7 +186,7 @@ void Vector<T, Alloc>::Insert(iterator position, size_type n, const_reference x)
 		new_finish = _uninitialized_copy(position, finish, new_finish);
 
 		//_uninitialized_fill(new_finish, new_start+new_size, T());
-		//´Ë´¦¿ÉÄÜÅ×³öÒì³£
+		//ï¿½Ë´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×³ï¿½ï¿½ì³£
 
 		Deallocate();
 

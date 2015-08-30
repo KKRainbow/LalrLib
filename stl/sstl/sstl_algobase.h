@@ -30,18 +30,35 @@ T min(T a, T b, Args... rest)
 	return a < b ? max(a, rest...) : max(b, rest...);
 }
 
-//µü´úÆ÷¸´ÖÆ(Ö¸Õë¼ädistanceÎªÅĞ¾İ£¨Random Iterator)
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Ö¸ï¿½ï¿½ï¿½distanceÎªï¿½Ğ¾İ£ï¿½Random Iterator)
 template<class RandomIterator,class OutputInterator>
 inline OutputInterator __copy_iter(RandomIterator first, RandomIterator last, OutputInterator result, random_access_iterator_tag)
 {
 	auto dis = last - first;
-	while (dis--)
+	auto diff = result - first;
+
+	if (diff == 0) return result;
+	//è¿™é‡Œè®°å¾—åˆ¤æ–­å†…å­˜ç©ºé—´æ˜¯å¦æœ‰é‡å ï¼Œåªæœ‰randomçš„iteratoræ‰éœ€è¦åšè¿™ç§åˆ¤æ–­ã€‚
+	if (diff < 0)
 	{
-		*result++ = *first++;
+		while (dis--)
+		{
+			*result++ = *first++;
+		}
 	}
+	else
+	{
+		auto lastResult = result + dis -1;
+		auto lastLast = last - 1;
+		while (dis--)
+		{
+			*lastResult-- = *lastLast--;
+		}
+	}
+
 	return result;
 }
-//µü´úÆ÷¸´ÖÆÒÔÖ¸ÕëÊÇ·ñÏàµÈÅĞ¾İ£¨Input Iterator)
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¾İ£ï¿½Input Iterator)
 template<class InputIterator, class OutputIterator>
 inline OutputIterator __copy_iter(InputIterator first, InputIterator last, OutputIterator result, input_iterator_tag)
 {
@@ -52,14 +69,14 @@ inline OutputIterator __copy_iter(InputIterator first, InputIterator last, Outpu
 	}
 	return result;
 }
-//Ö¸ÕëÀàĞÍµÄ¸´ÖÆ //ÊÇTrivial oper= template<class T>
+//Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ÍµÄ¸ï¿½ï¿½ï¿½ //ï¿½ï¿½Trivial oper= template<class T>
 template<class T>
 inline T* __copy_ptr(const T* first, const T* last, T* result, TrueType)
 {
 	memmove(result, first, sizeof(T)*(last - first));
 	return result + (last - first);
 }
-//Ö¸ÕëÀàĞÍµÄ¸´ÖÆ//²»ÊÇTrivial oper=
+//Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ÍµÄ¸ï¿½ï¿½ï¿½//ï¿½ï¿½ï¿½ï¿½Trivial oper=
 template<class T>
 inline T* __copy_ptr(const T* first, const T* last, T* result, FalseType)
 {
@@ -101,7 +118,7 @@ inline OutputIterator copy(InputIterator first, InputIterator last, OutputIterat
 	return __copy_dispatch<InputIterator, OutputIterator>()(first, last, result);
 }
 
-//Swapº¯Êı£¬½»»»Á½¸ö±äÁ¿
+//Swapï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 template<class InputIterator>
 void swap(InputIterator a, InputIterator b)
 {
